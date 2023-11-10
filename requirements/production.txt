@@ -1,0 +1,12 @@
+# PRECAUTION: avoid production dependencies that aren't in development
+
+-r base.txt
+
+gunicorn==21.2.0  # https://github.com/benoitc/gunicorn
+psycopg[c]==3.1.12  # https://github.com/psycopg/psycopg
+sentry-sdk==1.34.0  # https://github.com/getsentry/sentry-python
+
+# Django
+# ------------------------------------------------------------------------------
+django-storages[s3]==1.14.2  # https://github.com/jschneier/django-storages
+django-anymail[mailgun]==10.2  # https://github.com/anymail/django-anymail
