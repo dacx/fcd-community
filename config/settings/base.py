@@ -319,4 +319,4 @@ SOCIALACCOUNT_FORMS = {"signup": "fcd_community.users.forms.UserSocialSignupForm
 
 # Your stuff...
 # ------------------------------------------------------------------------------
-STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY", default="")
