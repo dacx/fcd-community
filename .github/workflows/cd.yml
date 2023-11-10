@@ -16,6 +16,6 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
+        key: ${{ secrets.KEY }}
+        port: 22
         script: cd /root/fcd-community && docker-compose -f production.yml down && git pull && docker-compose -f production.yml build && docker-compose -f production.yml run --rm django python manage.py migrate && docker-compose -f production.yml up -d
