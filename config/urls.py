@@ -14,6 +14,8 @@ urlpatterns = [
     path("users/", include("fcd_community.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("billing/", include("fcd_community.billing.urls", namespace="billing")),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
