@@ -1,8 +1,5 @@
 name: re-deploy on main push or merge
 on:
-  pull_request:
-    branches: ['master', 'main']
-
   push:
     branches: ['master', 'main']
     
