@@ -1,0 +1,21 @@
+name: re-deploy on main push or merge
+on:
+  pull_request:
+    branches: ['master', 'main']
+
+  push:
+    branches: ['master', 'main']
+    
+jobs:
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: cd /root/fcd-community && docker-compose -f production.yml down && git pull && docker-compose -f production.yml build && docker-compose -f production.yml run --rm django python manage.py migrate && docker-compose -f production.yml up -d
