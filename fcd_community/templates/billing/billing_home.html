@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1>Billing Dashboard</h1>
+  <h1>Billing Dashboard</h1>
   <p>This is the new billing dashboard.</p>
+  {% if request.user.stripe_customer_id %}
+    {% trans "You're all set." %}
+  {% else %}
+    <p>{% trans 'You can add a credit card here:' %}</p>
+    <a href="{% url 'billing:checkout' %}" class="btn-primary btn">{% trans 'Add Credit Card' %}</a>
+  {% endif %}
 {% endblock %}
