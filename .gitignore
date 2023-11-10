@@ -279,3 +279,5 @@ fcd_community/media/
 .env
 .envs/*
 !.envs/.local/
+
+.idea
