@@ -126,7 +126,6 @@ ANYMAIL = {
     "MAILGUN_API_URL": "https://api.eu.mailgun.net/v3",
 }
 
-
 # LOGGING
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging
@@ -187,6 +186,6 @@ sentry_sdk.init(
     traces_sample_rate=env.float("SENTRY_TRACES_SAMPLE_RATE", default=0.0),
 )
 
-
 # Your stuff...
 # ------------------------------------------------------------------------------
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY", default="")
